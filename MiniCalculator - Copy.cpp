@@ -5,6 +5,9 @@ using namespace std;
 
 void display(char op, double num1, double num2, double result);
 
+// ===== Add this new function declaration =====
+long long factorial(int n);
+
 int main()
 {
     double num1, num2;
@@ -19,7 +22,7 @@ int main()
     {
         cout << "Enter a number: ";
         cin >> num1;
-        cout << "Enter an operator (Addition (+), Subtraction (-), Multiplication (*), Division (/), Power (^), Root (r): ";
+        cout << "Enter an operator (Addition (+), Subtraction (-), Multiplication (*), Division (/), Power (^), Root (r), Factorial (!)): ";
         cin >> op;
         cout << "Enter another number: ";
         cin >> num2;
@@ -68,6 +71,13 @@ int main()
                 display(op, num1, num2, result);
             }
         }
+        // ===== New factorial section =====
+        else if (op == '!')
+        {
+            result = factorial((int)num1); // factorial only uses num1
+            if (result != -1)
+                cout << num1 << "! = " << result << endl;
+        }
         else
         {
             cout << "Error: Invalid operator!" << endl;
@@ -85,4 +95,20 @@ int main()
 void display(char op, double num1, double num2, double result)
 {
     cout << "Equation: " << num1 << " " << op << " " << num2 << " = " << result << endl;
+}
+
+// ===== New factorial function definition =====
+long long factorial(int n)
+{
+    if (n < 0)
+    {
+        cout << "Error: Factorial of negative number is undefined!" << endl;
+        return -1;
+    }
+    long long fact = 1;
+    for (int i = 1; i <= n; i++)
+    {
+        fact *= i;
+    }
+    return fact;
 }
