@@ -5,7 +5,6 @@ using namespace std;
 
 void display(char op, double num1, double num2, double result);
 
-// ===== Add this new function declaration =====
 long long factorial(int n);
 
 int main()
@@ -71,10 +70,10 @@ int main()
                 display(op, num1, num2, result);
             }
         }
-        // ===== New factorial section =====
+        // added this new factorial section 
         else if (op == '!')
         {
-            result = factorial((int)num1); // factorial only uses num1
+            result = factorial((int)num1); 
             if (result != -1)
                 cout << num1 << "! = " << result << endl;
         }
@@ -97,7 +96,7 @@ void display(char op, double num1, double num2, double result)
     cout << "Equation: " << num1 << " " << op << " " << num2 << " = " << result << endl;
 }
 
-// ===== New factorial function definition =====
+
 long long factorial(int n)
 {
     if (n < 0)
