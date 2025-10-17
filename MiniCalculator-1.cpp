@@ -5,7 +5,7 @@ using namespace std;
 
 // Function prototypes
 void display(char op, double num1, double num2, double result);
-long long factorial(int n);
+double factorial(int n);
 double square(double n);
 double squareRoot(double n);
 
@@ -22,66 +22,72 @@ int main()
 
     while (loop)
     {
-        cout << "Enter a number: ";
-        cin >> num1;
-        cout << "Enter an operator (Addition (+), Subtraction (-), Multiplication (*), Division (/), Power (^), Root (r), Factorial (!)): ";
-        cin >> op;
-        cout << "Enter another number: ";
-        cin >> num2;
+        cout << "Which operation would you like to compute.\n(1) Primary Operations\n(2) Special Operations\n";
+        cin >> inpt;
 
-        if (op == '+')
+        if (inpt == "1")
         {
-            result = num1 + num2;
-            display(op, num1, num2, result);
-        }
-        else if (op == '-')
-        {
-            result = num1 - num2;
-            display(op, num1, num2, result);
-        }
-        else if (op == '*')
-        {
-            result = num1 * num2;
-            display(op, num1, num2, result);
-        }
-        else if (op == '/')
-        {
-            if (num2 == 0)
+            cout << "Enter a number: ";
+            cin >> num1;
+            cout << "Enter an operator (Addition (+), Subtraction (-), Multiplication (*), Division (/), Power (^), Root (r), Factorial (!)): ";
+            cin >> op;
+            cout << "Enter another number: ";
+            cin >> num2;
+
+            if (op == '+')
             {
-                cout << "Error: Division by zero!" << endl;
+                result = num1 + num2;
+                display(op, num1, num2, result);
+            }
+            else if (op == '-')
+            {
+                result = num1 - num2;
+                display(op, num1, num2, result);
+            }
+            else if (op == '*')
+            {
+                result = num1 * num2;
+                display(op, num1, num2, result);
+            }
+            else if (op == '/')
+            {
+                if (num2 == 0)
+                {
+                    cout << "Error: Division by zero!" << endl;
+                }
+                else
+                {
+                    result = num1 / num2;
+                    display(op, num1, num2, result);
+                }
+            }
+            else if (op == '^')
+            {
+                result = pow(num1, num2);
+                display(op, num1, num2, result);
+            }
+            else if (op == 'r')
+            {
+                if (num2 == 0)
+                {
+                    cout << "Error: Root degree cannot be zero!" << endl;
+                }
+                else
+                {
+                    result = pow(num1, 1.0 / num2);
+                    display(op, num1, num2, result);
+                }
+            }
+            else if (op == '!')
+            {
+                result = factorial((int)num1);
+                if (result != -1)
+                    cout << num1 << "! = " << result << endl;
             }
             else
             {
-                result = num1 / num2;
-                display(op, num1, num2, result);
+                cout << "Error: Invalid operator!" << endl;
             }
-        }
-        else if (op == '^')
-        {
-            result = pow(num1, num2);
-            display(op, num1, num2, result);
-        }
-        else if (op == 'r')
-        {
-            if (num2 == 0)
-            {
-                cout << "Error: Root degree cannot be zero!" << endl;
-            }
-            else
-            {
-                result = pow(num1, 1.0 / num2);
-                display(op, num1, num2, result);
-            }
-        }
-        else if (op == '!')
-        {
-            result = factorial((int)num1);
-            if (result != -1)
-                cout << num1 << "! = " << result << endl;
-        }
-        else
-        {
-            cout << "Error: Invalid operator!" << endl;
         }
 
         cout << "Input (STOP) to close (enter anything else to continue): ";
