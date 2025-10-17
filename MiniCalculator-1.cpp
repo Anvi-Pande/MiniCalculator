@@ -9,7 +9,7 @@ long long factorial(int n);
 double square(double n);
 double squareRoot(double n);
 
-//Main function
+// Main function
 int main()
 {
     double num1, num2;
@@ -93,36 +93,38 @@ int main()
     }
 }
 
-
-//Display function for main function operations
+// Display function for main function operations
 void display(char op, double num1, double num2, double result)
 {
     cout << "Equation: " << num1 << " " << op << " " << num2 << " = " << result << endl;
 }
 
-//Square function definition
-double square(double n) {
+// Square function definition
+double square(double n)
+{
     return n * n;
 }
 
-//Square root function definition
-double squareRoot(double n) {
-    if (n < 0) {
+// Square root function definition
+double squareRoot(double n)
+{
+    if (n < 0)
+    {
         cout << "Error: Cannot take square root of negative number!" << endl;
         return -1;
     }
     return sqrt(n);
 }
 
-//Factorial function definition
-long long factorial(int n)
+// Factorial function definition
+double factorial(int n)
 {
     if (n < 0)
     {
         cout << "Error: Factorial of negative number is undefined!" << endl;
         return -1;
     }
-    long long fact = 1;
+    double fact = 1;
     for (int i = 1; i <= n; i++)
     {
         fact *= i;
