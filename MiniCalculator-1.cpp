@@ -6,6 +6,7 @@ using namespace std;
 // Function prototypes
 void display(char op, double num1, double num2, double result);
 void primaryOp();
+void specialOp();
 double factorial(int n);
 double square(double n);
 double squareRoot(double n);
@@ -110,6 +111,10 @@ void primaryOp()
     {
         cout << "Error: Invalid operator!" << endl;
     }
+}
+
+void specialOp()
+{
 }
 
 // Square function definition
