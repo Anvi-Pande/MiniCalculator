@@ -13,6 +13,9 @@ double squareRoot(double n);
 double sine(double n);
 double cosine(double n);
 double tangent(double n);
+double logarithm(double value, double base);
+double naturalLog(double value);
+void logOp();
 
 // Main function
 int main()
@@ -38,6 +41,10 @@ int main()
         if (inpt == "2")
         {
             specialOp();
+        }
+        if (inpt == "3")
+        {
+            logOp();
         }
 
         cout << "Input (STOP) to close (enter anything else to continue): ";
@@ -236,4 +243,50 @@ double cosine(double n)
 double tangent(double n)
 {
     return sine(n) / cosine(n);
+}
+// logarithim function
+double logarithm(double value, double base)
+{
+    if (value <= 0)
+    {
+        cout << "Error: Logarithm undefined for non-positive values!" << endl;
+        return NAN;
+    }
+    if (base <= 0 || base == 1)
+    {
+        cout << "Error: Base must be positive and not equal to 1!" << endl;
+        return NAN;
+    }
+    return log(value) / log(base);
+}
+
+// Natural log
+double naturalLog(double value)
+{
+    if (value <= 0)
+    {
+        cout << "Error: Natural log undefined for non-positive values!" << endl;
+        return NAN;
+    }
+    return log(value);
+}
+
+//  logarithm operation
+void logOp()
+{
+    double value, base;
+    cout << "LOGARITHM OPERATION" << endl;
+    cout << "Enter the value (>0): ";
+    cin >> value;
+    cout << "Enter the base (enter 0 for natural log): ";
+    cin >> base;
+
+    if (base == 0)
+    {
+        cout << "ln(" << value << ") = " << naturalLog(value) << endl;
+    }
+    else
+    {
+        cout << "log base " << base << " of " << value << " = " << logarithm(value, base) << endl;
+    }
 }
