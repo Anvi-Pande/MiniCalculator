@@ -12,6 +12,7 @@ double square(double n);
 double squareRoot(double n);
 double sine(double n);
 double cosine(double n);
+double tangent(double n);
 
 // Main function
 int main()
@@ -25,7 +26,7 @@ int main()
     while (loop)
     {
         cout << "Which operation would you like to compute.\n(1) Primary Operations\nAddition\nSubtraction\nMultiplication\nDivision\nPower\nRoot\nFactorial\n";
-        cout << endl; 
+        cout << endl;
         cout << "(2) Special Operations\nSine\nCosine\n";
         cin >> inpt;
 
@@ -33,7 +34,7 @@ int main()
         {
             primaryOp();
         }
-        
+
         if (inpt == "2")
         {
             specialOp();
@@ -126,22 +127,30 @@ void specialOp()
 {
     char option;
     double angle;
-    cout << "Enter 'S' for SINE and anything else for COSINE " << endl;
+    cout << "Enter 'S' for SINE,'C' for COSINE , 'T' for TANGENT" << endl;
     cin >> option;
 
-    if (option == 'S' || option == 's' ) 
+    if (option == 'S' || option == 's')
     {
         cout << "SINE\nEnter the angle you want in degrees(ex: for sin(90 degrees), enter 90): " << endl;
         cin >> angle;
-        cout << endl << "SIN(" << angle << ") = " << sine(angle) << endl;
+        cout << endl
+             << "SIN(" << angle << ") = " << sine(angle) << endl;
     }
-    else 
+    else if (option == 'C' || option == 'c')
     {
         cout << "COSINE\nEnter the angle you want in degrees(ex: for cos(90 degrees), enter 90): " << endl;
         cin >> angle;
-        cout << endl << "COS(" << angle << ") = " << cosine(angle) << endl;
+        cout << endl
+             << "COS(" << angle << ") = " << cosine(angle) << endl;
     }
-
+    else if (option == 'T' || option == 't')
+    {
+        cout << "Tangent\nEnter the angle you want in degrees(ex: for tan(90 degrees), enter 90): " << endl;
+        cin >> angle;
+        cout << endl
+             << "Tan(" << angle << ") = " << tangent(angle) << endl;
+    }
 }
 
 // Square function definition
@@ -183,19 +192,19 @@ double sine(double n)
     double answer;
     double first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth;
     double radians;
-    const double PI = 3.14159265359; 
+    const double PI = 3.14159265359;
 
     radians = n * (PI / 180);
     first = radians;
-    second = (pow(radians,3)) / (factorial(3));
-    third = (pow(radians,5)) / (factorial(5));
-    fourth = (pow(radians,7)) / (factorial(7));
-    fifth = (pow(radians,9)) / (factorial(9));
-    sixth = (pow(radians,11)) / (factorial(11));
-    seventh = (pow(radians,13)) / (factorial(13));
-    eighth = (pow(radians,15)) / (factorial(15));
-    ninth = (pow(radians,17)) / (factorial(17));
-    tenth = (pow(radians,19)) / (factorial(19));
+    second = (pow(radians, 3)) / (factorial(3));
+    third = (pow(radians, 5)) / (factorial(5));
+    fourth = (pow(radians, 7)) / (factorial(7));
+    fifth = (pow(radians, 9)) / (factorial(9));
+    sixth = (pow(radians, 11)) / (factorial(11));
+    seventh = (pow(radians, 13)) / (factorial(13));
+    eighth = (pow(radians, 15)) / (factorial(15));
+    ninth = (pow(radians, 17)) / (factorial(17));
+    tenth = (pow(radians, 19)) / (factorial(19));
     answer = first - second + third - fourth + fifth - sixth + seventh - eighth + ninth - tenth;
 
     return answer;
@@ -207,19 +216,24 @@ double cosine(double n)
     double answer;
     double first, second, third, fourth, fifth, sixth, seventh, eighth, ninth;
     double radians;
-    const double PI = 3.14159265359; 
+    const double PI = 3.14159265359;
 
     radians = n * (PI / 180);
-    first = (pow(radians,2)) / (factorial(2));
-    second = (pow(radians,4)) / (factorial(4));
-    third = (pow(radians,6)) / (factorial(6));
-    fourth = (pow(radians,8)) / (factorial(8));
-    fifth = (pow(radians,10)) / (factorial(10));
-    sixth = (pow(radians,12)) / (factorial(12));
-    seventh = (pow(radians,14)) / (factorial(14));
-    eighth = (pow(radians,16)) / (factorial(16));
-    ninth = (pow(radians,18)) / (factorial(18));
+    first = (pow(radians, 2)) / (factorial(2));
+    second = (pow(radians, 4)) / (factorial(4));
+    third = (pow(radians, 6)) / (factorial(6));
+    fourth = (pow(radians, 8)) / (factorial(8));
+    fifth = (pow(radians, 10)) / (factorial(10));
+    sixth = (pow(radians, 12)) / (factorial(12));
+    seventh = (pow(radians, 14)) / (factorial(14));
+    eighth = (pow(radians, 16)) / (factorial(16));
+    ninth = (pow(radians, 18)) / (factorial(18));
     answer = 1 - first + second - third + fourth - fifth + sixth - seventh + eighth - ninth;
 
     return answer;
+}
+
+double tangent(double n)
+{
+    return sine(n) / cosine(n);
 }
