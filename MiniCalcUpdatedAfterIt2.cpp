@@ -80,7 +80,7 @@ void primaryOp()
     cin >> num1;
     cout << "Enter an operator (Addition (+), Subtraction (-), Multiplication (*), Division (/), Power (^), Root (r), Factorial (!)): ";
     cin >> op;
-    cout << "Enter another number (for power and root this # is the exponent or ): ";
+    cout << "Enter another number (for power and root this # is the exponent): ";
     cin >> num2;
 
     if (op == '+')
