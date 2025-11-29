@@ -8,19 +8,15 @@ void display(char op, double num1, double num2, double result);
 void primaryOp();
 void specialOp();
 double factorial(int n);
-double square(double n);
-double squareRoot(double n);
 double sine(double n);
 double cosine(double n);
 double tangent(double n);
-//ADDED CSC, SEC, COT 
 double cosecant(double n);
 double secant(double n);
 double cotangent(double n);
-//<-----------
+void logOp();
 double logarithm(double value, double base);
 double naturalLog(double value);
-void logOp();
 double ePower(double x);
 
 
@@ -31,10 +27,11 @@ int main()
     bool loop = true;
     string inpt;
 
-    cout << "~~~~~~Mini Calculator~~~~~~" << endl;
+    cout << "~~~~~~Mini Calculator~~~~~~";
 
     while (loop)
     {
+        cout << endl;
         cout << "Which operation would you like to compute.\n(1) Primary Operations\nAddition\nSubtraction\nMultiplication\nDivision\nPower\nRoot\nFactorial\n";
         cout << endl; 
         cout << "(2) Special Operations\nSine\nCosine\nTangent\nCosecant\nSecant\nCotangent\n";
@@ -73,17 +70,17 @@ int main()
     }
 }
 
-// Primary operations function
+// Primary operations options function
 void primaryOp()
 {
     double num1, num2;
     char op;
     double result;
-    cout << "Enter a number: ";
+    cout << "Enter a number (for power and root this # is the base): ";
     cin >> num1;
     cout << "Enter an operator (Addition (+), Subtraction (-), Multiplication (*), Division (/), Power (^), Root (r), Factorial (!)): ";
     cin >> op;
-    cout << "Enter another number: ";
+    cout << "Enter another number (for power and root this # is the exponent or ): ";
     cin >> num2;
 
     if (op == '+')
@@ -148,7 +145,7 @@ void display(char op, double num1, double num2, double result)
     cout << "Equation: " << num1 << " " << op << " " << num2 << " = " << result << endl;
 }
 
-// Special operations option and display function
+// Special operations options and display function
 void specialOp()
 {
     char option;
@@ -200,23 +197,6 @@ void specialOp()
     }
 }
 
-// Square function
-double square(double n)
-{
-    return n * n;
-}
-
-// Square root function
-double squareRoot(double n)
-{
-    if (n < 0)
-    {
-        cout << "Error: Cannot take square root of negative number!" << endl;
-        return -1;
-    }
-    return sqrt(n);
-}
-
 // Factorial function
 double factorial(int n)
 {
@@ -233,7 +213,7 @@ double factorial(int n)
     return fact;
 }
 
-// Sine function definition
+// Sine function 
 double sine(double n)
 {
     double answer;
@@ -257,7 +237,7 @@ double sine(double n)
     return answer;
 }
 
-// Cosine function definition
+// Cosine function 
 double cosine(double n)
 {
     double answer;
@@ -286,22 +266,43 @@ double tangent(double n)
     return sine(n) / cosine(n);
 }
 
+// Cosecant function
 double cosecant(double n)
 {
     return 1 / sine(n);
 }
 
+// Secant function
 double secant(double n)
 {
     return 1 / cosine(n);
 }
 
+// Cotangent function
 double cotangent(double n)
 {
     return 1 / tangent(n);
 }
 
+// Logarithm operation function
+void logOp()
+{
+    double value, base;
+    cout << "LOGARITHM OPERATION" << endl;
+    cout << "Enter the value (>0): ";
+    cin >> value;
+    cout << "Enter the base (enter 0 for natural log): ";
+    cin >> base;
 
+    if (base == 0)
+    {
+        cout << "ln(" << value << ") = " << naturalLog(value) << endl;
+    }
+    else
+    {
+        cout << "log base " << base << " of " << value << " = " << logarithm(value, base) << endl;
+    }
+}
 
 // Logarithim function 
 double logarithm(double value, double base)
@@ -334,24 +335,4 @@ double naturalLog(double value)
 double ePower(double x)
 {
     return exp(x);
-}
-
-// Logarithm operation function
-void logOp()
-{
-    double value, base;
-    cout << "LOGARITHM OPERATION" << endl;
-    cout << "Enter the value (>0): ";
-    cin >> value;
-    cout << "Enter the base (enter 0 for natural log): ";
-    cin >> base;
-
-    if (base == 0)
-    {
-        cout << "ln(" << value << ") = " << naturalLog(value) << endl;
-    }
-    else
-    {
-        cout << "log base " << base << " of " << value << " = " << logarithm(value, base) << endl;
-    }
 }
