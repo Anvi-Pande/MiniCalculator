@@ -36,7 +36,8 @@ int main()
 
     while (loop)
     {
-        cout << "Which operation would you like to compute.\n(1) Primary Operations\nAddition\nSubtraction\nMultiplication\nDivision\nPower\nRoot\nFactorial\n";
+        cout << "\nWhich operation would you like to compute.\n";
+        cout << "(1) Primary Operations\nAddition\nSubtraction\nMultiplication\nDivision\nPower\nRoot\nFactorial\n";
         cout << endl;
         cout << "(2) Special Operations\nSine\nCosine\nTangent\nCosecant\nSecant\nCotangent\n";
         cout << endl;
